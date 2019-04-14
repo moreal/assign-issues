@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM python:3
 
 LABEL "name"="Assign Issues"
 LABEL "maintainer"="Moreal <dev.moreal@gmail.com>"
@@ -9,7 +9,6 @@ LABEL "com.github.actions.description"="Assign users to issues"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="pink"
 
-RUN apt-get update && apt-get install jq -y
-COPY encrypoint.sh /entrypoint.sh
+COPY run.py /run.py
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/run.py"]

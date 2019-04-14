@@ -9,6 +9,9 @@ LABEL "com.github.actions.description"="Assign users to issues"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="pink"
 
+COPY requirements.txt /requirements.txt
 COPY run.py /run.py
+
+RUN pip install -r requirements.txt
 
 ENTRYPOINT ["/run.py"]

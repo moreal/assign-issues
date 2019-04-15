@@ -5,6 +5,7 @@ workflow "Assign moreal to all issues" {
 
 action "Assign issue" {
   uses = "actions/github"
+  resolves = ["Label issue"]
   needs = ["Assign moreal to all issues"]
   args = "assign @moreal --action=opened"
   secrets = ["GITHUB_TOKEN"]

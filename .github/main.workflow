@@ -1,19 +1,17 @@
 workflow "Assign moreal to all issues" {
   on = "issue"
-  resolves = ["Assign issue"]
+  resolves = ["Assign issue", "Label issue"]
 }
 
 action "Assign issue" {
   uses = "actions/github"
-  resolves = ["Label issue"]
-  needs = ["Assign moreal to all issues"]
   args = "assign @moreal --action=opened"
   secrets = ["GITHUB_TOKEN"]
 }
 
 action "Label issue" {
   uses = "actions/github"
-  needs = ["Assign issues"]
+  needs = ["Assign issue"]
   args = "label todo --action=opened"
   secrets = ["GITHUB_TOKEN"]
 }

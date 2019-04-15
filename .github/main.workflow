@@ -1,6 +1,6 @@
 workflow "Assign moreal to all issues" {
   on = "issue"
-  resolves = ["Label issue"]
+  resolves = ["Assign issue"]
 }
 
 action "Assign issue" {
